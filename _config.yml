@@ -1,0 +1,21 @@
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - script
+  - src
+
+remote_theme: marella/jekyll-theme-documentation
+
+permalink: pretty
+nav:
+  - Введение:
+    - Предисловие: 'content/introduction/introduction'
+    - Что такое Java: 'content/introduction/what-is-java'
+    - Структура книги: 'content/introduction/book-structure'
+  - Демонстрация:
+    - Markdown: demos/markdown
+    - Другая страница: demos/another-page
+    - Оглавление: demos/toc
