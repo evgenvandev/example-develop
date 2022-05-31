@@ -10,7 +10,7 @@ url: http://evgenvandev.github.io
 
 # For a project page here should be a project name. Otherwise (for user's/organization's page leave it empty)
 #baseurl: '/jekyll-clean-dark'
-baseurl: ''
+baseurl: '/example-develop'
 
 author: Evgeny
 copyright: 2017-2022
