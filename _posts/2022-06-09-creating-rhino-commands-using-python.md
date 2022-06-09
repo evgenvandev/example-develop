@@ -56,3 +56,76 @@ _fbdf7d48-66ee-4a88-8294-caafb6b78a4b_ - это идентификатор GUID.
 1. _Необязательно_: чтобы распространять скрипт как плагин, просто поделитесь всей папкой. Вы можете заархивировать её, если хотите, и другие пользователи могут легко извлечь _MyNewPlug-In {fbdf7d48-66ee-4a88-8294-caafb6b78a4b}_ папку и поместить её в _%APPDATA%\McNeel\Rhinoceros\5.0\Plug-ins\PythonPlugIns\_ на свои компьютеры.
 
 Rhino должен быть закрыт при "установке" новых плагинов, иначе его нужно будет перезапустить, прежде чем он распознает какие-либо новые команды.
+
+Пример скрипта - выводит две линии красного и зелёного цвета, линии пересекаются, точка пересечения синего цвета.
+
+>MyNewCommand_cmd.py
+{:.filename}
+{% highlight python linenos %}
+# coding: utf-8
+import rhinoscript.userinterface
+import rhinoscript.geometry
+import rhinoscriptsyntax as rs
+
+__commandname__ = "MyNewCommand"
+
+# RunCommand is the called when the user enters the command name in Rhino.
+# The command name is defined by the filname minus "_cmd.py"
+def RunCommand( is_interactive ):
+  #print "Hello", __commandname__
+  # get a point
+  #point = rhinoscript.userinterface.GetPoint()
+  #if( point != None ):
+    #rhinoscript.geometry.AddPoint(point)
+  
+  # you can optionally return a value from this function
+  # to signify command result. Return values that make
+  # sense are
+  #   0 == success
+  #   1 == cancel
+  # If this function does not return a value, success is assumed
+  
+  intersection_two_color_line()
+  
+  return 0
+
+def intersection_two_color_line():
+    startPoint = [1.0, 2.0, 0.0]
+    endPoint = [4.0, 5.0, 0.0]
+    line1 = [startPoint, endPoint]
+    
+    # Adds a line to the Rhino Document and returns an ObjectID
+    # Добавляет линию в документ Rhino и возвращает 
+    # идентификатор объекта ObjectID
+    line1ID = rs.AddLine(line1[0], line1[1])
+    
+    # Устанавливаем цвет для объекта - красный
+    rs.ObjectColor(line1ID, [255, 0, 0])
+    
+    startPoint2 = [1.0, 4.0, 0.0]
+    endPoint2 = [4.0, 2.0, 0.0]
+    line2 = [startPoint2, endPoint2]
+    
+    # Returns another ObjectID
+    # Возвращает другой идентификатор объекта ObjectID
+    line2ID = rs.AddLine(line2[0], line2[1])
+    
+    # Устанавливаем цвет для объекта - зелёный
+    rs.ObjectColor(line2ID, [0, 255, 0])
+    
+    # Passing the ObjectIDs to the function
+    # Передаём идентификаторы объектов (линий) в другую функцию
+    int1 = rs.LineLineIntersection(line1ID, line2ID)
+    
+    if int1:
+        # Получаем идентификатор объекта 
+        # для точки пересечения линии
+        int1ID = rs.AddPoint(int1[0])
+        # Устанавливаем цвет для объекта - синий
+        rs.ObjectColor(int1ID,  [0, 0, 255])
+        #rs.AddPoint(int1[1])
+    
+    print "Команда ", __commandname__, " выполнена"
+{% endhighlight %}
+
+![Результат работы скрипта]({{'/assets/images/creating-rhino-commands-using-python/result-work-script.jpg' | relative_url}}){:.center-image}*Результат работы скрипта*
