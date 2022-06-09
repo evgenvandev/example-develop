@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Запуск Python скрипта кнопкой на панели"
+title: "Запуск Python скрипта кнопкой на панели в Rhino"
 date: 2022-06-08 05:08:00
 tags: python rhino
-description: Запуск скрипта, написанного на Python, с помощью кнопки на панели инструментов.
+description: Запуск скрипта, написанного на Python, с помощью кнопки на панели инструментов в Rhino.
 toc: true
 ---
 
