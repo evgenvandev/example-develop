@@ -9,6 +9,10 @@ toc: true
 
 # Запуск Python скрипта кнопкой на панели
 
+> Оригинальные статьи из документации:
+> [Primer-101 3.4 The skin](https://developer.rhino3d.com/guides/rhinopython/primer-101/3-script-anatomy/#34-the-skin)
+> [Running a Python script in Rhino](https://developer.rhino3d.com/guides/rhinopython/python-running-scripts/)
+
 После того, как скрипт написан и протестирован, вы можете поместить его в легкодоступное место, например, на кнопку панели инструментов _Rhino_.
 
 ![Пример кнопки "MyCommand"]({{'/assets/images/run-python-script-with-button/example-run-button.jpg' | relative_url}}){:.center-image}*Пример кнопки "MyCommand"*

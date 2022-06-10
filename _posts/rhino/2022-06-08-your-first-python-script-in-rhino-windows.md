@@ -9,7 +9,7 @@ toc: true
 
 # Ваш первый скрипт на Python в Rhino (Windows)
 
-[Ссылка на статью оригинал](https://developer.rhino3d.com/guides/rhinopython/your-first-python-script-in-rhino-windows/)
+> Оригинальная статья из документации [Your First Python Script in Rhino (Windows)](https://developer.rhino3d.com/guides/rhinopython/your-first-python-script-in-rhino-windows/)
 
 Пример показывает как отобразить окно сообщения в Rhino с надписью "Hello World".
 

@@ -9,6 +9,8 @@ toc: true
 
 # Создание команд Rhino с использованием Python
 
+> Оригинальная статья из документации [Creating Rhino Commands Using Python](https://developer.rhino3d.com/guides/rhinopython/creating-rhino-commands-using-python/)
+
 Можно, если немного разобраться, создать "настоящие" команды Rhino из скриптов Python. Ниже описана процедура для Rhino в Windows с несколькими комментариями о том, куда файлы должны идти, чтобы всё это работало с Rhino в Mac. Исходный шаблон для команд вместе с новым идентификатором _GUID_ и соответствующими папками автоматически создаются редактором скриптов "Rhino Python Editor" в Windows.
 
 ## В Windows
